@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="utf-8"
+        <title>Chinwe's Simple Calculator</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            *{
+                font-family: 'Courier New', Courier, monospace;
+                font-size: larger;
+                color: #000000
+            }
+            body {
+                background-color: #808080
+            }
+            .container {
+                width: 320px;
+                background-color: #ffffff;
+                margin: 120px auto;
+            }
+            table {
+                width: 100%;
+                border-style: solid;
+                border-color: #808080;
+            }
+            td {
+                width: 25%
+            }
+            button {
+                width: 100%;
+                height: 60px;
+                font-size: 30px;
+                background-color: #ffffff;
+                border: none;
+            }
+        #myCalc {
+                height: 120px;
+                font-size: 50px;
+                vertical-align: bottom;
+                text-align: right;
+                background-color: #ececec;
+            }
+        </style>
+    </head>
+    <body>
+        <div  class="container">
+            <table border="1">
+                <tr>
+                    <td colspan="4" id="myCalc">0</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><button onclick="pushBtn(this);">AC</button></td>
+                    <td><button onclick="pushBtn(this);">/</button></td>   
+                </tr>
+                <tr>
+                    <td><button onclick="pushBtn(this);">7</button></td>
+                    <td><button onclick="pushBtn(this);">8</button></td>
+                    <td><button onclick="pushBtn(this);">9</button></td>
+                    <td><button onclick="pushBtn(this);">*</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="pushBtn(this);">4</button></td>
+                    <td><button onclick="pushBtn(this);">5</button></td>
+                    <td><button onclick="pushBtn(this);">6</button></td>
+                    <td><button onclick="pushBtn(this);">-</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="pushBtn(this);">1</button></td>
+                    <td><button onclick="pushBtn(this);">2</button></td>
+                    <td><button onclick="pushBtn(this);">3</button></td>
+                    <td><button onclick="pushBtn(this);">+</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button onclick="pushBtn(this);">0</button></td>
+                    <td><button onclick="pushBtn(this);">.</button></td>
+                    <td><button onclick="pushBtn(this);">=</button></td>
+                </tr>
+            </table>
+        </div>
+
+    <script>
+        let myCalc = document.getElementById("myCalc");
+
+        function pushBtn(obj) {
+
+            let pushed = obj.innerHTML;
+
+            if (pushed == '=') {
+
+                myCalc.innerHTML = eval(myCalc.innerHTML);
+
+            } else if (pushed == 'AC') {
+
+                myCalc.innerHTML = '0'
+
+            } else {
+                if (myCalc.innerHTML == '0'){
+                    myCalc.innerHTML = pushed;
+
+                } else {
+                    myCalc.innerHTML += pushed;
+                }
+            }    
+        }
+    </script>
+    </body>
+</html>
